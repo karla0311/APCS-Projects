@@ -9,11 +9,20 @@ public void setup() {
 }
 
 public void draw() {
-  background(#a7f2e8);
+  background(#87ceeb);
+  fill(#57503e);
+  rect(50,150,400,220);
+  fill(#2e2a21);
+  ellipse(150,260,150,150);
+  ellipse(350,260,150,150);
   rightButton = arduino.analogRead(2);
-  if(rightButton > 500)
+  if(rightButton > 500){
     fill(255,0,0);
-  else
-    fill(0,255,0);
-  ellipse(250,250,150,150);
+    ellipse(350,260,150,150);
+  }
+    else{
+      fill(0,255,0);
+      ellipse(150,260,150,150);
+    }
+  //ellipse(250,250,150,150);
 }
