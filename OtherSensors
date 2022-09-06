@@ -2,6 +2,7 @@ import processing.serial.*;
 import cc.arduino.*;
 Arduino arduino;
 int rightButton = 0;
+int leftButton = 0;
 
 public void setup() {
   size(500, 500);
@@ -16,13 +17,13 @@ public void draw() {
   ellipse(150,260,150,150);
   ellipse(350,260,150,150);
   rightButton = arduino.analogRead(2);
+  leftButton = arduino.analogRead(6);
   if(rightButton > 500){
     fill(255,0,0);
     ellipse(350,260,150,150);
   }
-    else{
+   if(leftButton > 500){
       fill(0,255,0);
       ellipse(150,260,150,150);
     }
-  //ellipse(250,250,150,150);
 }
