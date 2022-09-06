@@ -12,7 +12,7 @@ public void setup() {
 public void draw() {
   background(#87ceeb);
   fill(#57503e);
-  rect(50,150,400,220);
+  rect(150,5,200,490);
   fill(#2e2a21);
   ellipse(150,260,150,150);
   ellipse(350,260,150,150);
