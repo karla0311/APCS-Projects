@@ -4,10 +4,13 @@ void setup() {
 }
 void draw() {
   //your code here
+  for(int y =0; y < 500; y +=50)
+    for(int x = 0; x<600; x += 50)
+      scale(x,y);
 }
 void scale(int x, int y) {
   //your code here
-  rect(x,y,20,30);
-  rect(5+x,y,20,30);
+  rect(10,10,20,30);
+  rect(15,10,20,30);
   //rotate(degrees(30));
 }
