@@ -4,13 +4,34 @@ void setup() {
 }
 void draw() {
   //your code here
-  for(int y =0; y < 500; y +=50)
-    for(int x = 0; x<600; x += 50)
-      scale(x,y);
+  //for(int y =0; y < 500; y +=50)
+    //for(int x = 0; x<600; x += 50)
+      //scale(x,y);
+         
 }
 void scale(int x, int y) {
-  //your code here
-  rect(10,10,20,30);
-  rect(15,10,20,30);
-  //rotate(degrees(30));
+  fill(#ffffff);
+    beginShape();
+    curveVertex(70,55);
+    curveVertex(70,55);
+    curveVertex(75,45);
+    curveVertex(73,60);
+    curveVertex(80,65);
+    curveVertex(60,70);
+    curveVertex(60,70);
+    endShape();
+    
+    fill(255,0,0);
+    beginShape();
+    curveVertex(50,50);
+    curveVertex(50,50);
+    curveVertex(60,45);
+    curveVertex(70,55);
+    curveVertex(50,75);
+    curveVertex(30,55);
+    curveVertex(40,45);
+    curveVertex(50,50);
+    curveVertex(50,50);
+    endShape();
+    
 }
