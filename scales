@@ -6,10 +6,6 @@ void setup() {
 }
 
 void draw() {
-  //if(mousePressed){
-     //   fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
-  //}
-  //ellipse(20,20,20,20);
   for(int y =0; y < 600; y +=40)
     for(int x = 0; x<600; x += 60)
       scale(x,y);   
