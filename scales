@@ -1,14 +1,19 @@
 void setup() {
   size(500, 500);  //feel free to change the size
   //noLoop(); //stops the draw() function from repeating
-  background(#808080);
   frameRate(3);
 }
 
 void draw() {
-  for(int y =0; y < 600; y +=40)
-    for(int x = 0; x<600; x += 60)
+  //changes background color to shades of grey
+  int r = (int)(Math.random()*230);
+  background(r,r,r);
+  //places scales in pattern 
+  for(int y =0; y < 600; y +=40){
+    for(int x = 0; x<600; x += 60){
       scale(x,y);   
+    }
+  }
 }
 
 void scale(int x, int y) {
