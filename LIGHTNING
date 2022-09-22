@@ -23,6 +23,10 @@ void draw()
     line(startX, startY, endX, endY);
     startX = endX;
     startY = endY;
+    if (keyPressed == true){
+      background((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
+      shape();
+    }
   //}
 }
 
@@ -44,5 +48,8 @@ void shape(){
   triangle(80,320,10,270,10,370);
   fill(0);
   ellipse(175,305,20,20);
+  fill(255,0,0);
+  noStroke();
+  triangle(190, 315, 210, 315, 200, 330);
   stop = stop + 1;
 }
