@@ -1,0 +1,23 @@
+class Die{
+  int myX, myY;
+  Die(int x, int y){
+    myX = x;
+    myY = y;
+  }
+  void show(){
+    fill(#ffffff);
+    rect(myX,myY,50,50);
+  }
+}
+
+Die bob;
+
+void setup(){
+  size(300,300);
+  bob = new Die(150,150);
+}
+
+void draw(){
+  background(0);
+  bob.show();
+}
