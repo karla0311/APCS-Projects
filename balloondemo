@@ -1,0 +1,35 @@
+class Balloon{
+  int mySize, myX, myY;
+  Balloon(int x, int y){
+    //fancy intializer
+    mySize = 50;
+    myX = x;
+    myY = y;
+  }
+  void show(){
+    fill(255,0,0);
+    ellipse(myX,myY,mySize,mySize);
+  }
+  void inflate(){
+    mySize = mySize + 1;
+  }
+}//end Balloon Class
+
+Balloon bob;
+Balloon sue;
+void setup(){
+  size(300,300);
+  bob = new Balloon(100,150);
+  sue = new Balloon(200, 100);
+}
+
+void draw(){
+  background(0);
+  sue.show();
+  sue.inflate();
+  System.out.println(bob.mySize);
+  bob.inflate();
+  bob.show();
+  sue.inflate();
+  sue.show();
+}
