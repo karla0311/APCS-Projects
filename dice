@@ -1,23 +1,82 @@
 class Die{
+  int num;
   int myX, myY;
   Die(int x, int y){
+    roll();
     myX = x;
     myY = y;
   }
+  void roll(){
+    while(Math.random() == 0){
+      Math.random();
+    }
+    if(Math.random() < 0.2){
+      num = 1;
+    }
+    if (Math.random() < 0.3){
+      num = 2;
+    }
+    if(Math.random() < 0.4){
+      num = 3;
+    }
+    if(Math.random() < 0.5){
+      num = 4;
+    }
+    if(Math.random() < 0.6){
+      num = 5;
+    }
+    if(Math.random() < 0.7){
+      num = 6;
+    }
+    System.out.println(num);
+  }
   void show(){
     fill(#ffffff);
-    rect(myX,myY,50,50);
+    rect(myX,myY,80,80);
+    if (num == 1){
+      ellipse(myX+40,myY+40,17,17);
+    }
+    if (num == 2){
+      ellipse(myX+20,myY+60,17,17);
+      ellipse(myX+60,myY+20,17,17);
+    }
+    if (num == 3){
+      ellipse(myX+20,myY+60,17,17);
+      ellipse(myX+40,myY+40,17,17);
+      ellipse(myX+60,myY+20,17,17);
+    }
+    if(num == 4){
+      ellipse(myX+20,myY+20,17,17);
+      ellipse(myX+20,myY+60,17,17);
+      ellipse(myX+60,myY+20,17,17);
+      ellipse(myX+60,myY+60,17,17);
+    }
+    if(num == 5){
+      ellipse(myX+20,myY+20,17,17);
+      ellipse(myX+20,myY+60,17,17);
+      ellipse(myX+40,myY+40,17,17);
+      ellipse(myX+60,myY+20,17,17);
+      ellipse(myX+60,myY+60,17,17);
+    }
+    if(num == 6){
+      ellipse(myX+20,myY+20,17,17);
+      ellipse(myX+20,myY+40,17,17);
+      ellipse(myX+20,myY+60,17,17);
+      ellipse(myX+60,myY+20,17,17);
+      ellipse(myX+60,myY+40,17,17);
+      ellipse(myX+60,myY+60,17,17);
+    }
   }
 }
 
 Die bob;
 
 void setup(){
-  size(300,300);
-  bob = new Die(150,150);
+  size(400,400);
+  bob = new Die(10,10);
 }
 
 void draw(){
-  background(0);
+  background(#D3D3D3);
   bob.show();
 }
