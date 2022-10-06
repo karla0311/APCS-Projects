@@ -1,3 +1,5 @@
+Die bob;
+int sum;
 class Die{
   int num;
   int myX, myY;
@@ -7,32 +9,13 @@ class Die{
     myY = y;
   }
   void roll(){
-    while(Math.random() == 0){
-      Math.random();
-    }
-    if(Math.random() < 0.2){
-      num = 1;
-    }
-    if (Math.random() < 0.3){
-      num = 2;
-    }
-    if(Math.random() < 0.4){
-      num = 3;
-    }
-    if(Math.random() < 0.5){
-      num = 4;
-    }
-    if(Math.random() < 0.6){
-      num = 5;
-    }
-    if(Math.random() < 0.7){
-      num = 6;
-    }
+    num = (int)(Math.random()*6)+1;
     System.out.println(num);
   }
   void show(){
-    fill(#ffffff);
+    fill((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
     rect(myX,myY,80,80);
+    fill((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
     if (num == 1){
       ellipse(myX+40,myY+40,17,17);
     }
@@ -69,14 +52,28 @@ class Die{
   }
 }
 
-Die bob;
-
 void setup(){
-  size(400,400);
+  size(600,650);
   bob = new Die(10,10);
+   noLoop();
 }
 
 void draw(){
   background(#D3D3D3);
-  bob.show();
+  int sum =0;
+  for(int x = 10; x <= 550; x += 100){
+    for(int y = 10; y <= 550; y+= 100){
+      bob = new Die(x,y);
+      bob.show();
+      sum = sum + bob.num;
+    }
+  }
+  textSize(20);
+  fill(0);
+  text("Total sum of dice: " + sum, 300, 625);
+}
+
+void mousePressed(){
+  redraw();
+  sum = 0;
 }
