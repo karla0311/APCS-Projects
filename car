@@ -1,0 +1,63 @@
+Car bob;
+Car sue;
+Car[] cars = new Car[100];
+
+void setup(){
+  size(400,400);
+  bob = new Car();
+  sue = new Car(color(255,0,0), 0, 10, 2);
+  for (int i = 0; i < cars.length; i++) {
+    cars[i] = new Car(color(i*2), 0, i*2, i/20.0);
+  }
+
+}
+
+void draw(){
+  background(255);
+  bob.move();
+  bob.show();
+  sue.move();
+  sue.show();
+  for (int i = 0; i < cars.length; i++) {
+  cars[i].move();
+  cars[i].show();
+  }
+}
+
+class Car{
+  color myC;
+  float myX, myY, myXspeed;
+  
+  Car(){
+    myC = color(255);
+    myX = width/2;
+    myY = height/2;
+    myXspeed = 1;
+  }
+  Car(color t, float x){
+    myC = t;
+    myX = x;
+    myY = 50;
+    myXspeed = 1.4;
+  }
+  //overloaded constructer
+  Car(color c, float x, float y, float s){
+    myC = c;
+    myX = x;
+    myY = y;
+    myXspeed = s;
+  }
+  
+  void show(){
+   rectMode(CENTER);
+   fill(myC);
+   rect(myX, myY, 20, 10);
+  }
+  
+  void move(){
+   myX += myXspeed;
+   if(myX > width)
+     myX = 0;
+  }
+}//end Car class
+
