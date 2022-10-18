@@ -1,0 +1,37 @@
+Bacteria bob, dod;
+
+void setup()
+{
+  size(500,500);
+  bob = new Bacteria();
+  dod = new Bacteria();
+}
+
+void draw()
+{
+  background(0);
+  bob.show();
+  bob.walk();
+  dod.show();
+  dod.walk();
+}
+
+class Bacteria
+{
+  int myX, myY;
+  Bacteria()
+  {
+    myX = myY = 250;
+  }
+  void walk()
+  {
+    myX = myX + (int)(Math.random()*7)-3;
+    myY = myY + (int)(Math.random()*7)-3;
+    
+  }
+  void show()
+  {
+    ellipse(myX,myY,30,30);
+    ellipse(mouseX,mouseY,30,30);
+  }
+}
