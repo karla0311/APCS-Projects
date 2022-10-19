@@ -1,27 +1,29 @@
-Bacteria bob, dod;
+Heart bob, dod;
+Heart [] hearts = new Heart[50];
 
 void setup()
 {
   size(500,500);
-  bob = new Bacteria();
-  dod = new Bacteria();
+  bob = new Heart();
+  dod = new Heart();
 }
 
 void draw()
 {
-  background(0);
+  background(#9acafc);
   bob.show();
   bob.walk();
   dod.show();
   dod.walk();
 }
 
-class Bacteria
+class Heart
 {
-  int myX, myY;
-  Bacteria()
+  int myX, myY, myC;
+  Heart()
   {
     myX = myY = 250;
+    myC = (int)(Math.random()*256);
   }
   void walk()
   {
@@ -31,7 +33,40 @@ class Bacteria
   }
   void show()
   {
-    ellipse(myX,myY,30,30);
-    ellipse(mouseX,mouseY,30,30);
+    fill(#ffffff);
+    //right wing
+    beginShape();
+    curveVertex(myX+20,myY+5);
+    curveVertex(myX+20,myY+5);
+    curveVertex(myX+25,myY-5); 
+    curveVertex(myX+23,myY+10);
+    curveVertex(myX+30,myY+15);
+    curveVertex(myX+10,myY+20);
+    curveVertex(myX+10,myY+20);
+    endShape();
+    //left wing
+    beginShape();
+    curveVertex(myX-20,myY+5);
+    curveVertex(myX-20,myY+5);
+    curveVertex(myX-25,myY-5); 
+    curveVertex(myX-23,myY+10);
+    curveVertex(myX-30,myY+15);
+    curveVertex(myX-10,myY+20);
+    curveVertex(myX-10,myY+20);
+    endShape();
+    //heart
+    fill(255,myC,myC);
+    beginShape();
+    curveVertex(myX,myY); 
+    curveVertex(myX,myY);
+    curveVertex(myX+10,myY-5);
+    curveVertex(myX+20,myY+5); 
+    curveVertex(myX,myY+25); 
+    curveVertex(myX-20,myY+5);
+    curveVertex(myX-10,myY-5);
+    curveVertex(myX,myY);
+    curveVertex(myX,myY);
+    endShape();
+    //ellipse(mouseX,mouseY,30,30);
   }
 }
