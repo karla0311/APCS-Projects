@@ -8,8 +8,9 @@ void setup()
   tim = new Heart();
   cherry = new Heart();
   for(int i = 0; i < hearts.length; i++){
-    hearts[i] = new Heart(color(i),color(i*2), color(i*2),250,250);
+    hearts[i] = new Heart(255,(int)(Math.random()*256),(int)(Math.random()*500),(int)(Math.random()*500));
   }
+  frameRate(25);
 }
 
 void draw()
@@ -23,36 +24,41 @@ void draw()
     hearts[i].walk();
     hearts[i].show();
   }
-  if(mouseX > x){
-    x = x + (int)(Math.random()*5)-1;
-  }
-  else{
-    x = x + (int)(Math.random()*5)-3;
-  }
 }
 
 class Heart
 {
-  color myC;
+  color myC, myR;
   float myX, myY;
   Heart()
   {
     myX = myY = 250;
-    //myR = 255;
+    myR = 255;
     myC = (int)(Math.random()*256);
   }
   
-  Heart(color c, color b, float x, float y){
-    //myR = r;
+  Heart(color r, color c, float x, float y){
+    myR = r;
     myC = c;
     myX = x;
     myY = y;
   }
   void walk()
   {
-    myX = myX + (int)(Math.random()*7)-3;
-    myY = myY + (int)(Math.random()*7)-3;
-    
+    //myX = myX + (int)(Math.random()*7)-3;
+    //myY = myY + (int)(Math.random()*7)-3;
+   if(mouseX > myX){
+     myX = myX + (int)(Math.random()*7)-1;
+  }
+   else{
+     myX = myX + (int)(Math.random()*7)-4;
+  }
+    if(mouseY > myY){
+    myY = myY + (int)(Math.random()*7)-1;
+  }
+  else{
+    myY = myY + (int)(Math.random()*7)-4;
+  }
   }
   void show()
   {
@@ -78,7 +84,7 @@ class Heart
     curveVertex(myX-10,myY+20);
     endShape();
     //heart
-    fill(255,myG,myB);
+    fill(255,myC,myC);
     beginShape();
     curveVertex(myX,myY); 
     curveVertex(myX,myY);
@@ -90,6 +96,5 @@ class Heart
     curveVertex(myX,myY);
     curveVertex(myX,myY);
     endShape();
-    //ellipse(mouseX,mouseY,30,30);
   }
 }
