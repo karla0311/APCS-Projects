@@ -18,8 +18,13 @@ public void draw()
   liltimmy.show();
 }
 
-fwhbfwiebfbfwebfwbebfwebfwef
+public void keyPressed(){
+  if(key == 'h'){
+    liltimmy.hyperspace();
+  }
+}
 
+===================================================================
 class Floater //Do NOT modify the Floater class! Make changes in the Spaceship class 
 {   
   protected int corners;  //the number of corners, a triangular floater has 3   
@@ -97,20 +102,27 @@ class Floater //Do NOT modify the Floater class! Make changes in the Spaceship c
   }   
 } 
 
-hgvbfughwrvbfhbwejbfjkwebfjkbf
-
+==================================================================================
 class Spaceship extends Floater  
 {   
     public Spaceship(){
       corners = 10;
       xCorners = new int[]{-8,-11,-11,-8,-4,8,-4,-8,-11,-11};
       yCorners = new int[]{0,-4,-8,-11,-11,0,11,11,8,4};
-    
+      myColor = #ff9499;
+      myCenterX = 250;
+      myCenterY = 250;
+  }
+  public void hyperspace(){
+      myXspeed = 0;
+      myYspeed = 0;
+      myCenterX = (int)(Math.random()*500);
+      myCenterY = (int)(Math.random()*500);
+      myPointDirection = (int)(Math.random()*500);
   }
 }
 
-wehgfewuibfwebfwebfwejfbwfjkbf
-
+==================================================================================
 class Star //note that this class does NOT extend Floater
 {
   private int myX, myY;
@@ -119,7 +131,8 @@ class Star //note that this class does NOT extend Floater
     myY = (int)(Math.random()*500);
   }
   public void show(){
-    fill(255);
+    fill(#f2f224);
+    noStroke();
     ellipse(myX,myY,3,3);
   }
 }
